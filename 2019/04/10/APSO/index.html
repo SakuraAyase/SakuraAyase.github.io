@@ -5,19 +5,26 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>APSO | Hexo</title>
+  <link rel="dns-prefetch" href="http://github.com/SakuraAyase">
+  <title>Yi Jiang&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="APSO">
-<meta property="og:url" content="http://yoursite.com/2019/04/10/APSO/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-10T05:58:33.124Z">
+  <meta name="description" content="Adaptive Particles Swarm Optimization algorithm1. introduction(1). Why we need to modify original PSO algorithm?  Compare with GA(genetic algorithm), PSO has a faster speed to converge. However, its">
+<meta name="keywords" content="Evolutionary computation, Machine Learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Yi Jiang&#39;s Blog">
+<meta property="og:url" content="http://github.com/SakuraAyase/2019/04/10/APSO/index.html">
+<meta property="og:site_name" content="Yi Jiang&#39;s Blog">
+<meta property="og:description" content="Adaptive Particles Swarm Optimization algorithm1. introduction(1). Why we need to modify original PSO algorithm?  Compare with GA(genetic algorithm), PSO has a faster speed to converge. However, its">
+<meta property="og:locale" content="Chinese, English, Japanese">
+<meta property="og:image" content="https://user-images.githubusercontent.com/25098957/55888997-f0ab3780-5be2-11e9-9137-64cf1ca49208.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/25098957/55890787-ea6a8a80-5be5-11e9-88be-669c877d46a6.png">
+<meta property="og:updated_time" content="2019-04-10T15:11:03.069Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="APSO">
+<meta name="twitter:title" content="Yi Jiang&#39;s Blog">
+<meta name="twitter:description" content="Adaptive Particles Swarm Optimization algorithm1. introduction(1). Why we need to modify original PSO algorithm?  Compare with GA(genetic algorithm), PSO has a faster speed to converge. However, its">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/25098957/55888997-f0ab3780-5be2-11e9-9137-64cf1ca49208.png">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Yi Jiang&#39;s Blog" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -44,47 +51,45 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src class="js-avatar">
+			<img src="https://github.com/SakuraAyase/Resources/blob/master/imgs/IMG_20190410_155457.jpg?raw=true" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">John Doe</a></h1>
+		  <h1 class="header-author"><a href="/">Yi Jiang</a></h1>
 		</hgroup>
 		
 
 		<nav class="header-menu">
 			<ul>
 			
-				<li><a href="/">主页</a></li>
+				<li><a href="/">Mainpage</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
+				<li><a href="/tags/Essays/">Essays</a></li>
 	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
     		
     			
-    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">All Essays</a>
     			
             
     			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
-    			
             
     			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">Aboutme</a>
     			
             
 		</nav>
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="http://github.com/SakuraAyase" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="qq" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2408409697&site=qq&menu=yes" title="qq"><i class="icon-qq"></i></a>
 		        
-					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+					<a class="bilibili" target="_blank" href="https://space.bilibili.com/12257131" title="bilibili"><i class="icon-bilibili"></i></a>
 		        
-					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="mail" target="_blank" href="/2408409697@qq.com" title="mail"><i class="icon-mail"></i></a>
 		        
 			</div>
 		</nav>
@@ -102,10 +107,10 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src class="js-avatar">
+				<img src="https://github.com/SakuraAyase/Resources/blob/master/imgs/IMG_20190410_155457.jpg?raw=true" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">John Doe</h1>
+			  <h1 class="header-author js-header-author">Yi Jiang</h1>
 			</hgroup>
 			
 			
@@ -119,13 +124,13 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="http://github.com/SakuraAyase" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="qq" target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=2408409697&site=qq&menu=yes" title="qq"><i class="icon-qq"></i></a>
 			        
-						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+						<a class="bilibili" target="_blank" href="https://space.bilibili.com/12257131" title="bilibili"><i class="icon-bilibili"></i></a>
 			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="mail" target="_blank" href="/2408409697@qq.com" title="mail"><i class="icon-mail"></i></a>
 			        
 				</div>
 			</nav>
@@ -134,9 +139,9 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 50%"><a href="/">Mainpage</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 50%"><a href="/tags/Essays/">Essays</a></li>
 		        
 				</ul>
 			</nav>
@@ -154,24 +159,53 @@
             <article id="post-APSO" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      APSO
-    </h1>
-  
-
-        
-        <a href="/2019/04/10/APSO/" class="archive-article-date">
-  	<time datetime="2019-04-10T05:58:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-10</time>
-</a>
-        
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
+<h1 id="Adaptive-Particles-Swarm-Optimization-algorithm"><a href="#Adaptive-Particles-Swarm-Optimization-algorithm" class="headerlink" title="Adaptive Particles Swarm Optimization algorithm"></a>Adaptive Particles Swarm Optimization algorithm</h1><h2 id="1-introduction"><a href="#1-introduction" class="headerlink" title="1. introduction"></a>1. introduction</h2><h3 id="1-Why-we-need-to-modify-original-PSO-algorithm"><a href="#1-Why-we-need-to-modify-original-PSO-algorithm" class="headerlink" title="(1). Why we need to modify original PSO algorithm?"></a>(1). Why we need to modify original PSO algorithm?</h3><p>  Compare with GA(genetic algorithm), PSO has a faster speed to converge. However, its magnificent convergence speed always lead it to a local optimal solution. </p>
+<p>Due to this, the important and appealing goals of PSO research are accelerating convergence speed and avoiding local optimal.</p>
+<h3 id="2-Development-of-APSO"><a href="#2-Development-of-APSO" class="headerlink" title="(2). Development of APSO"></a>(2). Development of APSO</h3><p>It develops a ESE(evolutionary state estimate) technology to estimate current state(exploration, exploitation, convergence, jump out), and dynamically adjusts the parameters used to accelerate PSO’s convergence speed. When APSO finds population is in convergence state, it will apply ELS(elite learning strategy) to make sure the population is not converging to a local optimal solution.</p>
+<h2 id="2-Architecture-of-APSO"><a href="#2-Architecture-of-APSO" class="headerlink" title="2. Architecture of APSO"></a>2. Architecture of APSO</h2><p>This blog assumes all the readers already have basic knowledge about original PSO. The rest of this part mainly talk about difference between PSO and APSO.</p>
+<h3 id="1-ESE-Evolutionary-state-estimate"><a href="#1-ESE-Evolutionary-state-estimate" class="headerlink" title="(1). ESE - Evolutionary state estimate"></a>(1). ESE - Evolutionary state estimate</h3><blockquote>
+<p>The population has 4 different states, which are <em>Exploration, Exploitation, Convergence, Jump out</em>.</p>
+</blockquote>
+<p>Before estimating current state, we need to introduce two new parameter, evolution factor <em>f</em>, which is used to control dynamic weight <em>w</em> and to determine current state. As well as mean distance <em>d</em>.</p>
+<p>And the following is schedule of ESE</p>
+<p><em>Step1:</em> For every particle i, calculate the mean distance from this particle’s current position to other particles.<br>       $$d_i = \frac {1}{N - 1}\sum^{N}_{j=1, j\neq i}{\sqrt {\sum^{D}_{k=1}{(x_i^k -  x_j^k)^2}}}$$</p>
+<p><em>Step2:</em> Denote \(d_i\) of global best particle <em>g</em> is  \(d_g\), the maximum and minimum value of \(d_i\) is \(d_{max}\) and \(d_{min}\).</p>
+<p>$$f = \frac {d_g - d_{min}}{d_{max} - d_{min}}$$</p>
+<p><em>Step3:</em> Estimate current state, classify f into S1, S2, S3, S4, which represent state <em>exploration, exploitation, convergence and jump out</em></p>
+<p><img src="https://user-images.githubusercontent.com/25098957/55888997-f0ab3780-5be2-11e9-9137-64cf1ca49208.png" alt="TZGQW0O$P{NTKG DXK_)TZL"></p>
+<p>However, the state estimation need to follow some fuzzy logical laws. If the <em>f</em> calculate just now indicate current state maybe one of two possible state, firstly, we need to consider the stability of state, for example, <em>f</em> = 0.5, which indicates current state maybe S1 and S2. If previous state is S1, the current state is S1, if previous state is S3, the current state is S2. The table is followed.</p>
+<table>
+<thead>
+<tr>
+<th>(f,previous state)</th>
+<th>current state  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> (0.75, S1), (0.75, S2), (0.5, S1), (0.5, S4)</td>
+<td>S1 </td>
+</tr>
+<tr>
+<td>(0.5, S2), (0.5, S3), (0.25, S1), (0.25, S2)</td>
+<td>S2</td>
+</tr>
+<tr>
+<td>(0.25, S3), (0.25, S4)</td>
+<td>S3</td>
+</tr>
+<tr>
+<td>(0.75, S4), (0.75, S3)</td>
+<td>S4</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://user-images.githubusercontent.com/25098957/55890787-ea6a8a80-5be5-11e9-88be-669c877d46a6.png" alt="@9{1(WR1(HEL5QG8EAP SCY"></p>
+
       
 
       
@@ -187,6 +221,16 @@
                   <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
                   <div class="reward-box">
                     
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://user-images.githubusercontent.com/25098957/55891505-408bfd80-5be7-11e9-8c55-81611040134a.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://user-images.githubusercontent.com/25098957/55891527-48e43880-5be7-11e9-900d-5985da53787c.png">
+                      <span class="reward-type">微信</span>
+                    </div>
                     
                   </div>
                 </span>
@@ -250,7 +294,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/10/APSO/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://github.com/SakuraAyase/2019/04/10/APSO/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -309,7 +353,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 John Doe
+    		&copy; 2019 Yi Jiang
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -350,8 +394,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
     
       
-      
-      
     
       
       
@@ -363,15 +405,13 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">All Essays</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
-      
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">Aboutme</a></li>
       
         
     </ul>
@@ -435,43 +475,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
 
     
-    	<section class="tools-section tools-section-friends" q-show="friends">
-  		
-        <ul class="search-ul">
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
-            </li>
-          
-        </ul>
-  		
-    	</section>
-    
 
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">Undergraduate student&lt;br&gt;&lt;br&gt; Major in Computer Science&lt;br&gt; South China University of Technology &lt;br&gt;&lt;br&gt; Interested in Evolutionary computation and Machine learning</div>
   	  	
     	</section>
     

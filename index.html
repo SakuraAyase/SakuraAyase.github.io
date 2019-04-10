@@ -69,7 +69,7 @@
     			
             
     			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">aboutme</a>
+    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">Aboutme</a>
     			
             
 		</nav>
@@ -150,6 +150,97 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-APSO" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
+<h1 id="Adaptive-Particles-Swarm-Optimization-algorithm"><a href="#Adaptive-Particles-Swarm-Optimization-algorithm" class="headerlink" title="Adaptive Particles Swarm Optimization algorithm"></a>Adaptive Particles Swarm Optimization algorithm</h1><h2 id="1-introduction"><a href="#1-introduction" class="headerlink" title="1. introduction"></a>1. introduction</h2><h3 id="1-Why-we-need-to-modify-original-PSO-algorithm"><a href="#1-Why-we-need-to-modify-original-PSO-algorithm" class="headerlink" title="(1). Why we need to modify original PSO algorithm?"></a>(1). Why we need to modify original PSO algorithm?</h3><p>  Compare with GA(genetic algorithm), PSO has a faster speed to converge. However, its magnificent convergence speed always lead it to a local optimal solution. </p>
+<p>Due to this, the important and appealing goals of PSO research are accelerating convergence speed and avoiding local optimal.</p>
+<h3 id="2-Development-of-APSO"><a href="#2-Development-of-APSO" class="headerlink" title="(2). Development of APSO"></a>(2). Development of APSO</h3><p>It develops a ESE(evolutionary state estimate) technology to estimate current state(exploration, exploitation, convergence, jump out), and dynamically adjusts the parameters used to accelerate PSO’s convergence speed. When APSO finds population is in convergence state, it will apply ELS(elite learning strategy) to make sure the population is not converging to a local optimal solution.</p>
+<h2 id="2-Architecture-of-APSO"><a href="#2-Architecture-of-APSO" class="headerlink" title="2. Architecture of APSO"></a>2. Architecture of APSO</h2><p>This blog assumes all the readers already have basic knowledge about original PSO. The rest of this part mainly talk about difference between PSO and APSO.</p>
+<h3 id="1-ESE-Evolutionary-state-estimate"><a href="#1-ESE-Evolutionary-state-estimate" class="headerlink" title="(1). ESE - Evolutionary state estimate"></a>(1). ESE - Evolutionary state estimate</h3><blockquote>
+<p>The population has 4 different states, which are <em>Exploration, Exploitation, Convergence, Jump out</em>.</p>
+</blockquote>
+<p>Before estimating current state, we need to introduce two new parameter, evolution factor <em>f</em>, which is used to control dynamic weight <em>w</em> and to determine current state. As well as mean distance <em>d</em>.</p>
+<p>And the following is schedule of ESE</p>
+<p><em>Step1:</em> For every particle i, calculate the mean distance from this particle’s current position to other particles.<br>       $$d_i = \frac {1}{N - 1}\sum^{N}_{j=1, j\neq i}{\sqrt {\sum^{D}_{k=1}{(x_i^k -  x_j^k)^2}}}$$</p>
+<p><em>Step2:</em> Denote \(d_i\) of global best particle <em>g</em> is  \(d_g\), the maximum and minimum value of \(d_i\) is \(d_{max}\) and \(d_{min}\).</p>
+<p>$$f = \frac {d_g - d_{min}}{d_{max} - d_{min}}$$</p>
+<p><em>Step3:</em> Estimate current state, classify f into S1, S2, S3, S4, which represent state <em>exploration, exploitation, convergence and jump out</em></p>
+<p><img src="https://user-images.githubusercontent.com/25098957/55888997-f0ab3780-5be2-11e9-9137-64cf1ca49208.png" alt="TZGQW0O$P{NTKG DXK_)TZL"></p>
+<p>However, the state estimation need to follow some fuzzy logical laws. If the <em>f</em> calculate just now indicate current state maybe one of two possible state, firstly, we need to consider the stability of state, for example, <em>f</em> = 0.5, which indicates current state maybe S1 and S2. If previous state is S1, the current state is S1, if previous state is S3, the current state is S2. The table is followed.</p>
+<table>
+<thead>
+<tr>
+<th>(f,previous state)</th>
+<th>current state  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> (0.75, S1), (0.75, S2), (0.5, S1), (0.5, S4)</td>
+<td>S1 </td>
+</tr>
+<tr>
+<td>(0.5, S2), (0.5, S3), (0.25, S1), (0.25, S2)</td>
+<td>S2</td>
+</tr>
+<tr>
+<td>(0.25, S3), (0.25, S4)</td>
+<td>S3</td>
+</tr>
+<tr>
+<td>(0.75, S4), (0.75, S3)</td>
+<td>S4</td>
+</tr>
+</tbody>
+</table>
+<p><img src="https://user-images.githubusercontent.com/25098957/55890787-ea6a8a80-5be5-11e9-88be-669c877d46a6.png" alt="@9{1(WR1(HEL5QG8EAP SCY"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/04/10/APSO/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -290,7 +381,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
       
         
       
-      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">aboutme</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">Aboutme</a></li>
       
         
     </ul>
@@ -358,7 +449,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">Undergraduate student&lt;br&gt;&lt;br&gt; Major in Computer Science&lt;br&gt;South China University of Technology</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">Undergraduate student&lt;br&gt;&lt;br&gt; Major in Computer Science&lt;br&gt; South China University of Technology &lt;br&gt;&lt;br&gt; Interested in Evolutionary computation and Machine learning</div>
   	  	
     	</section>
     
