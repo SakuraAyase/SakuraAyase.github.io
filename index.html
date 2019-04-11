@@ -156,14 +156,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
-
-<hr>
-<h2 id="title-Description-of-Adaptive-PSO"><a href="#title-Description-of-Adaptive-PSO" class="headerlink" title="title: Description of Adaptive PSO"></a>title: Description of Adaptive PSO</h2><h1 id="Adaptive-Particles-Swarm-Optimization-algorithm"><a href="#Adaptive-Particles-Swarm-Optimization-algorithm" class="headerlink" title="Adaptive Particles Swarm Optimization algorithm"></a>Adaptive Particles Swarm Optimization algorithm</h1><h2 id="1-introduction"><a href="#1-introduction" class="headerlink" title="1. introduction"></a>1. introduction</h2><h3 id="1-Why-we-need-to-modify-original-PSO-algorithm"><a href="#1-Why-we-need-to-modify-original-PSO-algorithm" class="headerlink" title="(1). Why we need to modify original PSO algorithm?"></a>(1). Why we need to modify original PSO algorithm?</h3><p>  Compare with GA(genetic algorithm), PSO has a faster speed to converge. However, its magnificent convergence speed always lead it to a local optimal solution. </p>
+        <h2 id="Adaptive-Particles-Swarm-Optimization-algorithm"><a href="#Adaptive-Particles-Swarm-Optimization-algorithm" class="headerlink" title="Adaptive Particles Swarm Optimization algorithm"></a>Adaptive Particles Swarm Optimization algorithm</h2><h3 id="1-introduction"><a href="#1-introduction" class="headerlink" title="1. introduction"></a>1. introduction</h3><h4 id="1-Why-we-need-to-modify-original-PSO-algorithm"><a href="#1-Why-we-need-to-modify-original-PSO-algorithm" class="headerlink" title="(1). Why we need to modify original PSO algorithm?"></a>(1). Why we need to modify original PSO algorithm?</h4><p>  Compare with GA(genetic algorithm), PSO has a faster speed to converge. However, its magnificent convergence speed always lead it to a local optimal solution. </p>
 <p>Due to this, the important and appealing goals of PSO research are accelerating convergence speed and avoiding local optimal.</p>
-<h3 id="2-Development-of-APSO"><a href="#2-Development-of-APSO" class="headerlink" title="(2). Development of APSO"></a>(2). Development of APSO</h3><p>It develops a ESE(evolutionary state estimate) technology to estimate current state(exploration, exploitation, convergence, jump out), and dynamically adjusts the parameters used to accelerate PSO’s convergence speed. When APSO finds population is in convergence state, it will apply ELS(elite learning strategy) to make sure the population is not converging to a local optimal solution.</p>
-<h2 id="2-Architecture-of-APSO"><a href="#2-Architecture-of-APSO" class="headerlink" title="2. Architecture of APSO"></a>2. Architecture of APSO</h2><p>This blog assumes all the readers already have basic knowledge about original PSO. The rest of this part mainly talk about difference between PSO and APSO.</p>
-<h3 id="1-ESE-Evolutionary-state-estimate"><a href="#1-ESE-Evolutionary-state-estimate" class="headerlink" title="(1). ESE - Evolutionary state estimate"></a>(1). ESE - Evolutionary state estimate</h3><blockquote>
+<h4 id="2-Development-of-APSO"><a href="#2-Development-of-APSO" class="headerlink" title="(2). Development of APSO"></a>(2). Development of APSO</h4><p>It develops a ESE(evolutionary state estimate) technology to estimate current state(exploration, exploitation, convergence, jump out), and dynamically adjusts the parameters used to accelerate PSO’s convergence speed. When APSO finds population is in convergence state, it will apply ELS(elite learning strategy) to make sure the population is not converging to a local optimal solution.</p>
+<h3 id="2-Architecture-of-APSO"><a href="#2-Architecture-of-APSO" class="headerlink" title="2. Architecture of APSO"></a>2. Architecture of APSO</h3><p>This blog assumes all the readers already have basic knowledge about original PSO. The rest of this part mainly talk about difference between PSO and APSO.</p>
+<h4 id="1-ESE-Evolutionary-state-estimate"><a href="#1-ESE-Evolutionary-state-estimate" class="headerlink" title="(1). ESE - Evolutionary state estimate"></a>(1). ESE - Evolutionary state estimate</h4><blockquote>
 <p>The population has 4 different states, which are <em>Exploration, Exploitation, Convergence, Jump out</em>.</p>
 </blockquote>
 <p>Before estimating current state, we need to introduce two new parameter, evolution factor <em>f</em>, which is used to control dynamic weight <em>w</em> and to determine current state. As well as mean distance <em>d</em>.</p>
@@ -201,12 +198,12 @@
 </tbody>
 </table>
 <p><img src="https://user-images.githubusercontent.com/25098957/55890787-ea6a8a80-5be5-11e9-88be-669c877d46a6.png" alt="@9{1(WR1(HEL5QG8EAP SCY"></p>
-<h3 id="2-Adjustment-of-parameters"><a href="#2-Adjustment-of-parameters" class="headerlink" title="(2). Adjustment of parameters"></a>(2). Adjustment of parameters</h3><h5 id="inertia-weight-w"><a href="#inertia-weight-w" class="headerlink" title="inertia weight w"></a>inertia weight <em>w</em></h5><p>Inertia weight <em>w</em> is used to update the current velocity according to previous velocity and population distribution in PSO.</p>
+<h4 id="2-Adjustment-of-parameters"><a href="#2-Adjustment-of-parameters" class="headerlink" title="(2). Adjustment of parameters"></a>(2). Adjustment of parameters</h4><h6 id="inertia-weight-w"><a href="#inertia-weight-w" class="headerlink" title="inertia weight w"></a>inertia weight <em>w</em></h6><p>Inertia weight <em>w</em> is used to update the current velocity according to previous velocity and population distribution in PSO.</p>
 <p><img src="https://user-images.githubusercontent.com/25098957/55927465-bfb11e00-5c47-11e9-902d-b5787a0e10a1.png" alt="ZAB%LN~YH}~12GGQZO7UDJ5"></p>
 <p>In PSO, inertia weight <em>w</em> is dynamically changed according to the change of evolutionary factor <em>f</em>.</p>
 <p><img src="https://user-images.githubusercontent.com/25098957/55927546-03a42300-5c48-11e9-9ab8-32f48352e7b2.png" alt="GY3O`H7Z(P5O F@@5PU9){4"></p>
 <p>And this equation make sure <em>w</em> lies into the range [04,0.9].</p>
-<h5 id="Acceleration-Coefficient"><a href="#Acceleration-Coefficient" class="headerlink" title="Acceleration Coefficient"></a>Acceleration Coefficient</h5><p>Acceleration coefficient <em>C1</em> and <em>C2</em> is controlled by current state as followed.</p>
+<h6 id="Acceleration-Coefficient"><a href="#Acceleration-Coefficient" class="headerlink" title="Acceleration Coefficient"></a>Acceleration Coefficient</h6><p>Acceleration coefficient <em>C1</em> and <em>C2</em> is controlled by current state as followed.</p>
 <p><img src="https://user-images.githubusercontent.com/25098957/55927776-da37c700-5c48-11e9-8456-f79a9067d8bd.png" alt="KB@@HPYL0R%E%O~{50%SPI6"></p>
 <p><img src="https://user-images.githubusercontent.com/25098957/55927777-dad05d80-5c48-11e9-8a49-7614fc35c3ae.png" alt="6Q(`LO`E07YI3S GUJ7Z38"></p>
 <p><img src="https://user-images.githubusercontent.com/25098957/55927779-dad05d80-5c48-11e9-806a-302717184b7a.png" alt="JEH9I2RR6M_3) ~T9H_8_RG"></p>
@@ -221,13 +218,13 @@
 <p>(Because the Latin character is not able to be shown in Chrome, so I just use the pic)<br><img src="https://user-images.githubusercontent.com/25098957/55928156-423add00-5c4a-11e9-80b1-7b6446866615.png" alt="4%SM@@XX C$7B{XS6LGY6BU"></p>
 <p>We need to bound <em>C1</em> and <em>C2</em> into interval <em>[1.5, 2.5]</em>, if they flies out of this range, just clips it into this interval.</p>
 <p>And value of <em>C1+C2</em> should be bounded into <em>[3.0, 4.0]</em>, if the value of <em>C1+C2</em> larger than 4.0, we should perform:<br><img src="https://user-images.githubusercontent.com/25098957/55928395-11a77300-5c4b-11e9-9e5c-cff143ff1e64.png" alt="O@W6}{V D3SW8WCO%3$V7)N"></p>
-<h3 id="3-ELS-elite-learning-strategy"><a href="#3-ELS-elite-learning-strategy" class="headerlink" title="(3). ELS - elite learning strategy"></a>(3). ELS - elite learning strategy</h3><p>To avoid the population converge to early, the ELS is implemented at convergence state.</p>
+<h4 id="3-ELS-elite-learning-strategy"><a href="#3-ELS-elite-learning-strategy" class="headerlink" title="(3). ELS - elite learning strategy"></a>(3). ELS - elite learning strategy</h4><p>To avoid the population converge to early, the ELS is implemented at convergence state.</p>
 <p><img src="https://user-images.githubusercontent.com/25098957/55928672-32bc9380-5c4c-11e9-98bf-5779bfb82a43.png" alt="}XF1L UG6PN_NO}P1R2EBA3"></p>
 <p>At first, we copy the global best particle as P, and randomly change its one dimension by adding or abstracting a slice value generated by Gaussian (Normal) distribution. </p>
 <p>And then evaluate P’s fitness and gbest’s fitness, if P is better than gbest, let P replace the gbest, while if P is worse, let P replace the particle that has the worst fitness of its pbest in population.</p>
 <p><img src="https://user-images.githubusercontent.com/25098957/55928914-035a5680-5c4d-11e9-9831-75f5dd106358.png" alt="OTNULGV_X858XDX(`K7Q)6J"></p>
 <p>where σmax = 1.0, σmin = 0.1. g is the current generation number, and G is the maximum generation number.</p>
-<h2 id="3-Conclusion-and-reference"><a href="#3-Conclusion-and-reference" class="headerlink" title="3. Conclusion and reference"></a>3. Conclusion and reference</h2><p>The total flowchart is following:<br><img src="https://user-images.githubusercontent.com/25098957/55929021-6fd55580-5c4d-11e9-9e24-cca8193a24a5.png" alt="2DJAS`0%~ROT3C0C3~9Y2PK"></p>
+<h3 id="3-Conclusion-and-reference"><a href="#3-Conclusion-and-reference" class="headerlink" title="3. Conclusion and reference"></a>3. Conclusion and reference</h3><p>The total flowchart is following:<br><img src="https://user-images.githubusercontent.com/25098957/55929021-6fd55580-5c4d-11e9-9e24-cca8193a24a5.png" alt="2DJAS`0%~ROT3C0C3~9Y2PK"></p>
 <p>The code of APSO is attached at my GitHub <a href="http://github.com/SakuraAyase">github.com/SakuraAyase</a></p>
 <p>More details or to feedback bugs, please contract me at <a href="mailto:2408409697@qq.com" target="_blank" rel="noopener">2408409697@qq.com</a>.</p>
 <hr>
@@ -245,7 +242,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2019/04/10/APSO/">展开全文 >></a>
+          <a class="article-more-a" href="/2019/04/11/APSO/">展开全文 >></a>
         </p>
       
 
